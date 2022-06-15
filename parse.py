@@ -83,6 +83,26 @@ def plot (dataList : list):
 
     plt.show()
 
+    fig2, ax2 = plt.subplots()
+    ax2.set_axis_off()
+    
+    rowHeaders = ('Small', 'Medium', 'Large')
+    colHeaders = ("Number of Objects", "Size of File (MB)")  
+    ax2.set_title('Mean Data for Different Sizes', fontweight="bold")
+
+    values = []
+    for r in range(3):
+        temp = []
+        temp.append(objects[r])
+        temp.append(size[r])
+        values.append(temp)
+           
+    table = ax2.table(cellText = values,
+                    rowLabels = rowHeaders,
+                    colLabels= colHeaders,
+                    cellLoc='center',
+                    loc='upper left')
+    plt.show()
 
 dataList = []
 types = ['Small/', 'Medium/', 'Large/']
